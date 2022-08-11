@@ -10,19 +10,7 @@ The backend stores data in a persistent volume.
 Both services communicate with each other on an isolated back-tier network, while frontend is also connected to a front-tier network and exposes port 443 for external usage.
 
 
-(External user) --> 443 [frontend network]
-                                |
-                      +--------------------+
-                      |  frontend service  |...ro...<HTTP configuration>
-                      |      "webapp"      |...ro...<server certificate> #secured
-                      +--------------------+
-                                |
-                        [backend network]
-                                |
-                      +--------------------+
-                      |  backend service   |  r+w   ___________________
-                      |     "database"     |=======( persistent volume )
-                      +--------------------+        \_________________/
+![image](https://github.com/pritamnikam/docker-compose-illustrative-example/blob/main/multi-container-illustrative-example.png)
 
 
 The example application is composed of the following parts:
