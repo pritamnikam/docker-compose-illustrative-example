@@ -20,3 +20,6 @@ The example application is composed of the following parts:
 - 1 configuration (HTTP), injected into the frontend
 - 1 persistent volume, attached to the backend
 - 2 networks
+
+
+This example illustrates the distinction between volumes, configs and secrets. While all of them are all exposed to service containers as mounted files or directories, only a volume can be configured for read+write access. Secrets and configs are read-only. The volume configuration allows you to select a volume driver and pass driver options to tweak volume management according to the actual infrastructure. Configs and Secrets rely on platform services, and are declared external as they are not managed as part of the application lifecycle: the Compose implementation will use a platform-specific lookup mechanism to retrieve runtime values.
